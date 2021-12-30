@@ -1,0 +1,33 @@
+{
+  "name": "tranfertcrytpo",
+  "version": "1.0.0",
+  "description": "this module permit to make transaction without use metamask",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node examples/example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toure5013/tranfertcrytpo.git"
+  },
+  "keywords": [
+    "crypto",
+    "transfert",
+    "bakend",
+    "nodejs",
+    "web3",
+    "token transaction"
+  ],
+  "author": "toure5013",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toure5013/tranfertcrytpo/issues"
+  },
+  "homepage": "https://github.com/toure5013/tranfertcrytpo#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "ethereumjs-tx": "^2.1.2",
+    "web3": "^1.6.1"
+  }
+}
