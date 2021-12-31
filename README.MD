@@ -34,10 +34,10 @@ npm i tranfertcrytpo
 Example : 
 
 * Ethereum NetWorks
-const TransfertCrypto = requir('tranfertcrytpo/ethereumNetwork'); 
+const TransfertCrypto = require('tranfertcrytpo/ethereumNetwork'); 
 
 * Binance NetWorks
-const TransfertCrypto = requir('tranfertcrytpo/binanceNetwork'); 
+const TransfertCrypto = require('tranfertcrytpo/binanceNetwork'); 
 
 ```
 
@@ -132,5 +132,6 @@ Example :
 - [x] Transaction on ethereum ropsten
 - [X] Transaction on binance smart chain
 - [X] Transaction on binance test chain
+- [ ] Specify the token to transfert
 - [ ] Transaction on moonriver
 
