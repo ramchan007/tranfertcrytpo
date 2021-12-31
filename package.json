@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node examples/example"
+    "start-ethereum": "node examples/exampleEthereum",
+    "start-binance": "node examples/exampleBinanceNetWorks"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "ethereumjs-tx": "^2.1.2",
+    "tranfertcrytpo": "^1.0.0",
     "web3": "^1.6.1"
   }
 }

@@ -16,8 +16,9 @@ By just importing your secrey key and specifying :
 
 ```
 1 - create your project on infura copy the id copy the id 
-
 https://infura.io/
+
+(ONLY FOR ETHEREUM NETWORK)
 ```
 
 
@@ -32,7 +33,12 @@ npm i tranfertcrytpo
 
 Example : 
 
-const TransfertCrypto = requir('tranfertcrytpo'); 
+* Ethereum NetWorks
+const TransfertCrypto = requir('tranfertcrytpo/ethereumNetwork'); 
+
+* Binance NetWorks
+const TransfertCrypto = requir('tranfertcrytpo/binanceNetwork'); 
+
 ```
 
 
@@ -44,8 +50,11 @@ const TransfertCrypto = requir('tranfertcrytpo');
         - { "address" : sender_wallet_address, sender_Wallet_privateKey}
 
 Example : 
-
+* Ethereum NetWorks
 var trs = new TransfertCrypto(INFURA_PROJECT_ID, sendersData);
+
+* Binance NetWorks
+var trs = new TransfertCrypto(sendersData);
 ```
 
 ```
@@ -58,6 +67,7 @@ var trs = new TransfertCrypto(INFURA_PROJECT_ID, sendersData);
 
 
 Example : 
+* Ethereum NetWorks (ropsten for this example , chainId = 3)
 
 const results = await trs.transact({ "address" : 0x53C0723D19213A6a8f0584B39600445ab31F0010}, 3, amount)
 ```
@@ -74,8 +84,12 @@ SUCCESS :
     link: 'link to see the transaction on the corresponding network etherscan'
   }
 }
-Example : 
 
+
+
+
+Example : 
+* Ethereum
 {
   error: false,
   result: {
@@ -84,6 +98,15 @@ Example :
   }
 }
 
+* Binance
+
+{
+  error: false,
+  result: {
+    id: '0xddeddc5e744d1d0f59d002b2e76661b1ad89487bd4ef462f75a124aee9332be7',
+    link: 'https://testnet.bscscan.com/tx/0xddeddc5e744d1d0f59d002b2e76661b1ad89487bd4ef462f75a124aee9332be7'
+  }
+}
 
 
 ERROR : 
@@ -98,8 +121,6 @@ Example :
   result: 'Error: Expected private key to be an Uint8Array with length 32'
 }
 
-
-
 ```
 
 
@@ -109,7 +130,7 @@ Example :
 - [x] Transaction on ethereum mainnet
 - [X] Transaction on ethereum rinkeby
 - [x] Transaction on ethereum ropsten
-- [ ] Transaction on binance smart chain
-- [ ] Transaction on binance test chain
+- [X] Transaction on binance smart chain
+- [X] Transaction on binance test chain
 - [ ] Transaction on moonriver
 
