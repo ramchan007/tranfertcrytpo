@@ -1,6 +1,6 @@
 {
   "name": "tranfertcrytpo",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "this module permit to make transaction without use metamask",
   "main": "index.js",
   "scripts": {
