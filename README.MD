@@ -15,7 +15,7 @@ By just importing your secrey key and specifying :
 
 
 ```
-1 - create your project on infura copy the id copy the id 
+1 - create your project on infura and copy the id. You will need it to interact with ethereum networks
 https://infura.io/
 
 (ONLY FOR ETHEREUM NETWORK)
