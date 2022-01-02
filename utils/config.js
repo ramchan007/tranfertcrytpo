@@ -1,6 +1,6 @@
 class Config{
-    tokenAdress = "0xf09d317400A0450D8f7362051447d6846aeAFa64";
-   tokenAbi = [
+   static tokenAdress = "0xf09d317400A0450D8f7362051447d6846aeAFa64";
+   static tokenAbi = [
 	{
 		"inputs": [
 			{
@@ -295,4 +295,4 @@ class Config{
 ]
  }
  
- module.exports = new Config();
+ module.exports = Config;
