@@ -1,5 +1,5 @@
 
-const TransactSpecificToken = require("../transfertSpecificToken");
+const TranfertpecificToken = require("../TranfertpecificToken");
 const Config = require("../utils/config");
 
 async function example_binance_token() {
@@ -10,14 +10,20 @@ async function example_binance_token() {
     };
     let tokenAbi = Config.tokenAbi;
     let tokenAddress = "0xf09d317400A0450D8f7362051447d6846aeAFa64";
-    let  recieverData = { address: "0x40b43d492bed2Fa90B30CA1618530c1a6b7601C7" }
     let INFURA_PROJECT_ID = ""; //when interact with binance didn't need infura project ID
 
 
-    let transactSpecificToken = new TransactSpecificToken(INFURA_PROJECT_ID, sendersData, tokenAbi , tokenAddress);
+    let tranfertpecificToken = new TranfertpecificToken(INFURA_PROJECT_ID, sendersData, tokenAbi , tokenAddress);
+
     try {
-      let result = await transactSpecificToken.transact(recieverData,97, 5010);
-       console.log( result);
+      let chainId = 97;
+      let recieverData = { address: "0x40b43d492bed2Fa90B30CA1618530c1a6b7601C7" }
+      let amountToSend = 5010;
+
+
+      let result = await tranfertpecificToken.transact(recieverData,chainId, amountToSend);
+      console.log( result);
+
     } catch (error) {
       console.log(error);
       console.log(error.message);
@@ -39,9 +45,9 @@ async function example_ethereum_token() {
   const INFURA_PROJECT_ID = "66c4b87046104259a568349d87ba03d1"; //only for ETHEREUM NETWORKS
 
   
-  let transactSpecificToken = new TransactSpecificToken(INFURA_PROJECT_ID, sendersData, tokenAbi, tokenAddress);
+  let TranfertpecificToken = new TranfertpecificToken(INFURA_PROJECT_ID, sendersData, tokenAbi, tokenAddress);
 
-  let result = await transactSpecificToken.transact(recieverData,3, 200);
+  let result = await TranfertpecificToken.transact(recieverData,3, 200);
   console.log( result);
 }
 
@@ -57,9 +63,9 @@ async function example_ethereum_token2() {
   const INFURA_PROJECT_ID = "66c4b87046104259a568349d87ba03d1"; //only for ETHEREUM NETWORKS
 
   
-  let transactSpecificToken = new TransactSpecificToken(INFURA_PROJECT_ID, sendersData, tokenAbi, tokenAddress);
+  let TranfertpecificToken = new TranfertpecificToken(INFURA_PROJECT_ID, sendersData, tokenAbi, tokenAddress);
 
-  let result = await transactSpecificToken.transact(recieverData,3, 10000);
+  let result = await TranfertpecificToken.transact(recieverData,3, 10000);
   console.log( result);
 }
 
