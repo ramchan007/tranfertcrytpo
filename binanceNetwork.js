@@ -3,7 +3,7 @@ const Web3 = require("web3");
 const EthereumTx = require("ethereumjs-tx").Transaction;
 const Common = require("ethereumjs-common").default;
 
-module.exports =  class TransfertCrypto {
+module.exports =  class BinanceNetwork {
 
     sendersData = {};
   

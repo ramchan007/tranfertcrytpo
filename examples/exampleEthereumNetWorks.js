@@ -1,4 +1,4 @@
-const TransfertCrypto = require("../ethereumNetwork");
+const EthereumNetwork = require("../ethereumNetwork");
 
 async function exampleEthereumNetWork() {
   //DEFINE DATAS
@@ -15,7 +15,7 @@ async function exampleEthereumNetWork() {
 
 
   //TRANSACTION
-  var trs = new TransfertCrypto(INFURA_PROJECT_ID, sendersData);
+  var trs = new EthereumNetwork(INFURA_PROJECT_ID, sendersData);
 
   var result = await trs.transact(recieverData,
     chainId,

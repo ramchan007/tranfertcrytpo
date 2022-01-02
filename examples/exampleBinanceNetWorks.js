@@ -1,4 +1,4 @@
-const TransfertCrypto = require("../binanceNetwork");
+const BinanceNetwork = require("../binanceNetwork");
 
 async function exampleBinanceNetWorks() {
 
@@ -14,7 +14,7 @@ async function exampleBinanceNetWorks() {
 
 
   //TRANSACTION
-  var trs = new TransfertCrypto(sendersData);
+  var trs = new BinanceNetwork(sendersData);
   var result = await trs.transact(recieverData,
     chainId,
     amount

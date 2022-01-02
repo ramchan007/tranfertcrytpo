@@ -48,16 +48,11 @@ npm i tranfertcrytpo
 ```  
 
 ```
-2 - export the module : 
+2 - import the module : 
 
 Example : 
 
-* Ethereum NetWorks
-const TransfertCrypto = require('tranfertcrytpo/ethereumNetwork'); 
-
-* Binance NetWorks
-const TransfertCrypto = require('tranfertcrytpo/binanceNetwork'); 
-
+let tranfertcrytpo =  require("tranfertcrytpo");
 ```
 
 
@@ -70,10 +65,11 @@ const TransfertCrypto = require('tranfertcrytpo/binanceNetwork');
 
 Example : 
 * Ethereum NetWorks
-var trs = new TransfertCrypto(INFURA_PROJECT_ID, sendersData);
+var trs = new tranfertcrytpo.EthereumNetwork(INFURA_PROJECT_ID, sendersData);
+
 
 * Binance NetWorks
-var trs = new TransfertCrypto(sendersData);
+var trs = new tranfertcrytpo.BinanceNetwork(sendersData);
 ```
 
 ```
@@ -164,10 +160,10 @@ npm i tranfertcrytpo
 ```  
 
 ```
-2 - export the module : 
+2 - import the module : 
 
 Example : 
-const TransfertCrypto = require('tranfertcrytpo/TranfertpecificToken'); 
+const  tranfertcrytpo = require('tranfertcrytpo'); 
 
 ```
 
@@ -183,7 +179,7 @@ const TransfertCrypto = require('tranfertcrytpo/TranfertpecificToken');
         - tokenAddress
 
 Example : 
-let tranfertpecificToken = new TranfertpecificToken(INFURA_PROJECT_ID, sendersData, tokenAbi , tokenAddress);
+let tranfertpecificToken = new  tranfertcrytpo.TranfertpecificToken(INFURA_PROJECT_ID, sendersData, tokenAbi , tokenAddress);
 
 ```
 
@@ -240,7 +236,7 @@ Example :
 ```
 Example : 
 
-const TranfertSpecificTokenAllRpc = require("../TranfertSpecificTokenAllRpc");
+const tranfertcrytpo = require("tranfertcrytpo");
 const Config = require("../utils/config");
 
 async function example() {

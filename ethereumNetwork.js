@@ -4,7 +4,7 @@ const EthereumTx = require("ethereumjs-tx").Transaction;
 
 // const CHAIN_ID = 3; // EIP 155 chainId - mainnet: 1, rinkeby: 4, ropsten 3
 
-module.exports =  class TransfertCrypto {
+module.exports =  class EthereumNetwork {
   PROJECT_ID = "";
   sendersData = {};
 
