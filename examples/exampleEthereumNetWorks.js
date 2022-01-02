@@ -1,4 +1,4 @@
-const TransfertCrypto = require("../index");
+const TransfertCrypto = require("../ethereumNetwork");
 
 async function exampleEthereumNetWork() {
   //DEFINE DATAS
