@@ -1,35 +1,54 @@
-# TRANSACT TOKEN FROM YOUR WALLET USING NODEJS
 
+## --------------------------------------------
+## TRANSACT TOKEN FROM YOUR WALLET USING NODE JS
+## --------------------------------------------
+
+## Roadmap 
+
+- [x] Init project
+- [x] Transaction on ethereum mainnet
+- [X] Transaction on ethereum rinkeby
+- [x] Transaction on ethereum ropsten
+- [X] Transaction on Binance smart chain
+- [X] Transaction on Binance test chain
+- [X] Specify the token to send
+- [ ] Transaction on moonriver
+
+
+
+## TRANSACTION BNB ON BINANCE ETHER ON ETHEREUM
 ```
-This module aim to permit to make transaction in your backend (nodejs) without use your wallet(metamask) to confirm.
+This module aims to permit you to make the transaction in your backend (nodejs) without using your wallet(metamask) to confirm.
 
-By just importing your secrey key and specifying : 
-    - the account & private key of sender 
+By just importing your secret key and specifying : 
+    - the account & private key of the sender 
     - receiver wallet address
-    - chain Id (You can get your network chain ID in https://chainlist.org/, by just type your network in the searchbar)
+    - chain Id (You can get your network chain ID in https://chainlist.org/, by just typing your network in the search bar)
     - Infura project ID (https://infura.io/)
 ```
 
 
-## How implement
 
 
+### Before going in the code
 ```
-1 - create your project on infura and copy the id. You will need it to interact with ethereum networks
+create your project on infura and copy the id. You will need it to interact with ethereum networks
 https://infura.io/
 
 (ONLY FOR ETHEREUM NETWORK)
 ```
 
 
+### How implement
+
 ```
-2 - Install the module in your project
+1 - Install the module in your project
 
 npm i tranfertcrytpo
 ```  
 
 ```
-3 - export the module : 
+2 - export the module : 
 
 Example : 
 
@@ -43,7 +62,7 @@ const TransfertCrypto = require('tranfertcrytpo/binanceNetwork');
 
 
 ```
-4 - Create TransfertCrypto instance
+3 - Create TransfertCrypto instance
 
     @params : 
         - INFURA_PROJECT_ID , 
@@ -58,7 +77,7 @@ var trs = new TransfertCrypto(sendersData);
 ```
 
 ```
-5 - Call transact method on the TransfertCrypto instnace 'trs'
+4 - Call transact method on the TransfertCrypto instance 'trs'
 
     @params :  
         - { "address" : recipient_wallet_address}
@@ -67,7 +86,7 @@ var trs = new TransfertCrypto(sendersData);
 
 
 Example : 
-* Ethereum NetWorks (ropsten for this example , chainId = 3)
+* Ethereum NetWorks (ropsten for this example, chainId = 3)
 
 const results = await trs.transact({ "address" : 0x53C0723D19213A6a8f0584B39600445ab31F0010}, 3, amount)
 ```
@@ -124,14 +143,92 @@ Example :
 ```
 
 
-## Roadmap 
 
-- [x] Init project
-- [x] Transaction on ethereum mainnet
-- [X] Transaction on ethereum rinkeby
-- [x] Transaction on ethereum ropsten
-- [X] Transaction on binance smart chain
-- [X] Transaction on binance test chain
-- [ ] Specify the token to transfert
-- [ ] Transaction on moonriver
+## TRANSACTION SPECIFIED TOKEN ON BINANCE OR ETHEREUM
 
+### Before going in the code
+```
+
+To transfer a token you want, you will need : 
+   - token ABI and token Address
+
+For the ethereum network, you will need infura project id
+```
+
+
+### How to implement 
+```
+1 - Install the module in your project
+
+npm i tranfertcrytpo
+```  
+
+```
+2 - export the module : 
+
+Example : 
+const TransfertCrypto = require('tranfertcrytpo/transfertSpecificToken'); 
+
+```
+
+
+```
+3 - Create TransfertCrypto instance
+
+    @params : 
+        - INFURA_PROJECT_ID, only on ethereum network, for binance just past empty string ""
+        - { "address" : sender_wallet_address, sender_Wallet_privateKey}
+        - sendersData
+        - tokenAbi
+        - tokenAddress
+
+Example : 
+let transactSpecificToken = new TransactSpecificToken(INFURA_PROJECT_ID, sendersData, tokenAbi , tokenAddress);
+
+```
+
+```
+4 - Call transact method on the TransfertCrypto instance 'trs'
+
+    @params :  
+        - { "address" : recipient_wallet_address}
+        - chainID (network_ID),
+        - amount (in ether)
+
+
+Example : 
+let result = await transactSpecificToken.transact(recieverData,3, 200);
+console.log( result);
+```
+
+
+```
+5 - Interpret the response
+
+{
+  error: boolean,
+  url : "" //if error = false
+  result: {} or string
+}
+
+Example : 
+{
+  error : false,
+  url: 'https://testnet.bscscan.com/tx/0xf9d96694c1100bcd4db23143737f72dabbe43e8b4957292e8f289add3e5a01fc',
+  result: {
+    blockHash: '0x783df1bd3732d9716dd39c6995f69d8c75dfe76e2a9d7426731e8a5bf0bb7a8f',
+    blockNumber: 15513877,
+    contractAddress: null,
+    cumulativeGasUsed: 590420,
+    from: '0x53c0723d19213a6a8f0584b39600445ab31f0010',
+    gasUsed: 38003,
+    logsBloom: '0x00000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000008000000000000100000000000000000000000000000000000000000000000000000000800000000000000000000080010000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004002010000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000',
+    status: true,
+    to: '0xf09d317400a0450d8f7362051447d6846aeafa64',
+    transactionHash: '0xf9d96694c1100bcd4db23143737f72dabbe43e8b4957292e8f289add3e5a01fc',
+    transactionIndex: 5,
+    type: '0x0',
+    events: { Transfer: [Object] }
+  }
+}
+```
