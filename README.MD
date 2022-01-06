@@ -1,7 +1,7 @@
 
-## --------------------------------------------
 ## TRANSACT TOKEN FROM YOUR WALLET USING NODE JS
-## --------------------------------------------
+
+
 
 ## Roadmap 
 
@@ -16,7 +16,7 @@
 
 
 
-## TRANSACTION BNB ON BINANCE ETHER ON ETHEREUM
+## TRANSACTION BNB ON BINANCE & ETHER ON ETHEREUM
 ```
 This module aims to permit you to make the transaction in your backend (nodejs) without using your wallet(metamask) to confirm.
 
@@ -30,68 +30,74 @@ By just importing your secret key and specifying :
 
 
 
-### Before going in the code
+### Before going in the code 
 ```
 create your project on infura and copy the id. You will need it to interact with ethereum networks
-https://infura.io/
+https://infura.io/ 
 
 (ONLY FOR ETHEREUM NETWORK)
 ```
 
 
-### How implement
+## How implement
 
-```
-1 - Install the module in your project
+### 1 - Install the module in your project
 
+```bash
 npm i tranfertcrytpo
 ```  
 
-```
-2 - import the module : 
 
-Example : 
-
+### 2 - import the module : 
+```js
 let tranfertcrytpo =  require("tranfertcrytpo");
 ```
 
 
-```
-3 - Create TransfertCrypto instance
 
+### 3 - Create TransfertCrypto instance
+```
     @params : 
         - INFURA_PROJECT_ID , 
         - { "address" : sender_wallet_address, sender_Wallet_privateKey}
+```
+        
 
-Example : 
 * Ethereum NetWorks
+ 
+```js
 var trs = new tranfertcrytpo.EthereumNetwork(INFURA_PROJECT_ID, sendersData);
+```
 
 
 * Binance NetWorks
+
+```js
 var trs = new tranfertcrytpo.BinanceNetwork(sendersData);
 ```
 
-```
-4 - Call transact method on the TransfertCrypto instance 'trs'
 
+#### 4 - Call transact method on the TransfertCrypto instance 'trs'
+```
     @params :  
         - { "address" : recipient_wallet_address}
         - chainID (network_ID),
         - amount (in ether)
+```
 
-
-Example : 
 * Ethereum NetWorks (ropsten for this example, chainId = 3)
 
+```js
 const results = await trs.transact({ "address" : 0x53C0723D19213A6a8f0584B39600445ab31F0010}, 3, amount)
 ```
 
-```
-5 - Interpret the response
 
+#### 5 - Interpret the response
 
-SUCCESS : 
+```js
+
+//SUCCESS : 
+
 {
   error: false,
   result: {
@@ -101,10 +107,7 @@ SUCCESS :
 }
 
 
-
-
-Example : 
-* Ethereum
+//Ethereum
 {
   error: false,
   result: {
@@ -113,7 +116,8 @@ Example :
   }
 }
 
-* Binance
+
+//Binance
 
 {
   error: false,
@@ -124,7 +128,7 @@ Example :
 }
 
 
-ERROR : 
+//ERROR : 
 {
   error: true,
   result: "error message"
@@ -144,70 +148,77 @@ Example :
 
 ### Before going in the code
 ```
-
 To transfer a token you want, you will need : 
    - token ABI and token Address
-
-For the ethereum network, you will need infura project id
+   - For the <b> ethereum network </b>, you will need infura project id
 ```
 
 
 ### How to implement 
-```
-1 - Install the module in your project
+#### 1 - Install the module in your project
+
+```bash
+
 
 npm i tranfertcrytpo
 ```  
 
-```
-2 - import the module : 
 
-Example : 
+#### 2 - import the module : 
+
+
+```js
+//Example
 const  tranfertcrytpo = require('tranfertcrytpo'); 
-
 ```
 
 
-```
-3 - Create TransfertCrypto instance
+#### 3 - Create TransfertCrypto instance
 
+```
     @params : 
         - INFURA_PROJECT_ID, only on ethereum network, for binance just past empty string ""
         - { "address" : sender_wallet_address, sender_Wallet_privateKey}
         - sendersData
         - tokenAbi
         - tokenAddress
+```
 
-Example : 
+
+```js
+// Example
 let tranfertpecificToken = new  tranfertcrytpo.TranfertpecificToken(INFURA_PROJECT_ID, sendersData, tokenAbi , tokenAddress);
-
 ```
 
-```
-4 - Call transact method on the TransfertCrypto instance 'trs'
 
+#### 4 - Call transact method on the TransfertCrypto instance 'trs'
+```
     @params :  
         - { "address" : recipient_wallet_address}
         - chainID (network_ID),
         - amount (in ether)
+```
 
 
-Example : 
+```js
+// Example : 
 let result = await tranfertpecificToken.transact(recieverData,3, 200);
 console.log( result);
 ```
 
-
+#### 5 - Interpret the response
 ```
-5 - Interpret the response
-
 {
   error: boolean,
   url : "" //if error = false
   result: {} or string
 }
+```
 
-Example : 
+```js
+
+
+// Example : 
 {
   error : false,
   url: 'https://testnet.bscscan.com/tx/0xf9d96694c1100bcd4db23143737f72dabbe43e8b4957292e8f289add3e5a01fc',
@@ -233,8 +244,8 @@ Example :
 
 ## TRANSACTION BY SPECIFYING YOUR NETWORK CONFIG AND YOUR TOKEN INFORMATION
 
-```
-Example : 
+```js
+//Example
 
 const tranfertcrytpo = require("tranfertcrytpo");
 const Config = require("../utils/config");
@@ -252,7 +263,7 @@ async function example() {
     let explorerUrl =  `https://testnet.bscscan.com/tx/`; //+transaction_id;
     let rpcUrl = "https://data-seed-prebsc-1-s1.binance.org:8545";
     
-    let tranfertSpecificTokenAllRpc = new TranfertSpecificTokenAllRpc(INFURA_PROJECT_ID, sendersData, tokenAbi , tokenAddress, network_name,rpcUrl,explorerUrl);
+    let tranfertSpecificTokenAllRpc = new tranfertcrytpo.TranfertSpecificTokenAllRpc(INFURA_PROJECT_ID, sendersData, tokenAbi , tokenAddress, network_name,rpcUrl,explorerUrl);
    
    
     try {
