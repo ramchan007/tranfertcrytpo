@@ -254,7 +254,7 @@ async function example() {
     const sendersData = {
       address: "0x53C0723D19213A6a8f0584B39600445ab31F0010",
       privateKey:
-        "4cd43beb757ea781def9f5a852c3387a5551ba0e51ab15f5a40383c95376a09b",
+        "4cd43beb757ea781def9f5a852c3387a5551ba0exxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     };
     let tokenAbi = Config.tokenAbi;
     let tokenAddress = "0xf09d317400A0450D8f7362051447d6846aeAFa64";
